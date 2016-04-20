@@ -1,0 +1,33 @@
+# To create a docker image with SSH service on port 22
+# First you should create a authorized_keys file 
+# Then you should run the images ubuntu:latest
+
+#!/bin/bash
+
+#mkdir -p sshd_ubuntu
+#cd sshd_ubuntu
+#touch Dockerfile run.sh
+#ssh-keygen -t rsa
+#cat ~/.ssh/id_rsa_pub > authorized_keys
+#
+#
+#
+
+
+#Then build the docker image named sshd:ubuntu
+#
+#docker build -t sshd:ubuntu .
+#
+#
+
+#Then run the docker image !
+#
+#docker run -d -p 10122:22 --name sshd_ubuntu sshd:ubuntu
+#
+#
+#
+#
+#
+#
+#
+
