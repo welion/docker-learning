@@ -22,7 +22,7 @@ RUN echo "deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted
 RUN echo "deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list 
 
 # Install SSH service
-RUN apt-get update
+#RUN apt-get update
 RUN apt-get install -y openssh-server
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /root/.ssh
@@ -39,4 +39,4 @@ RUN chmod 755 /run.sh
 EXPOSE 22
 
 # Set the init command
-CMD ["run.sh"]
+CMD ["/run.sh"]
