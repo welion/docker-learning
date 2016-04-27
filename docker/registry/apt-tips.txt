@@ -19,3 +19,4 @@ sudo apt-get check 检查是否有损坏的依赖
 要是遇到了depends的报错，尝试使用
 
 aptitude install <package-name>
+
