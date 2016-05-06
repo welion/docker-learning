@@ -21,7 +21,6 @@ RUN mkdir -p /data/db
 RUN chown mongodb:mongodb /data/db
 VOLUME /data/db
 RUN sed -i 's/dbpath=\/var\/lib\/mongodb/dbpath=\/data\/db/g' /etc/mongodb.conf
-RUN sed -i 's/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/g' /etc/mongodb.conf
 
 ENV AUTH no
 
