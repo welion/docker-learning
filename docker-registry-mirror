@@ -1,0 +1,40 @@
+您的免费加速器:
+使用加速器将会提升您在国内获取Docker官方镜像的速度
+
+http://welion.m.alauda.cn
+
+如何使用:
+
+安装/升级 Docker
+
+Docker相关手册： Mac    Ubuntu    Debian    CentOS    Windows
+
+配置加速器
+
+将您的加速器加入到docker配置文件中，不同系统会有区别
+
+Windows
+启动Boot2docker Start Shell
+sudo "sh -c \"echo EXTRA_ARGS=\'--registry-mirror=http://welion.m.alauda.cn\' >> /var/lib/boot2docker/profile\""
+重新启动Boot2Docker
+Ubuntu | Debian
+echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://welion.m.alauda.cn\"" | sudo tee -a /etc/default/docker
+sudo service docker restart
+CentOS
+sudo sed -i 's|other_args="|other_args="--registry-mirror=http://welion.m.alauda.cn |g' /etc/sysconfig/docker
+sudo sed -i "s|OPTIONS='|OPTIONS='--registry-mirror=http://stmbtfly.m.alauda.cn |g" /etc/sysconfig/docker
+sudo sed -i 'N;s|\[Service\]\n|\[Service\]\nEnvironmentFile=-/etc/sysconfig/docker\n|g' /usr/lib/systemd/system/docker.service
+sudo sed -i 's|fd://|fd:// $other_args |g' /usr/lib/systemd/system/docker.service
+sudo systemctl daemon-reload
+sudo service docker restart
+Mac
+boot2docker ssh sudo "sh -c \"echo EXTRA_ARGS=\'--registry-mirror=http://welion.m.alauda.cn\' >> /var/lib/boot2docker/profile\""
+boot2docker restart
+Toolbox
+docker-machine ssh default
+sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='—registry-mirror=http://welion.m.alauda.cn |g" /var/lib/boot2docker/profile
+exit
+docker-machine restart default
+使用
+
+docker pull <image_name> 
